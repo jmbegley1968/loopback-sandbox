@@ -3,20 +3,37 @@
 module.exports = function (MyModel) {
 
 
-  MyModel.myFind = function (cb) {
-    //if (err) { return cb(err, null) }
+  MyModel.myFind1 = function (cb) {
+    var id = "string_id";
+    MyModel.findById(id, function(err, result) {
+      if (err) { return cb(err, null) }
+      return cb(null, result)
+    });
+  };
 
-    return cb(null, "MY RESULT!")
-
+  MyModel.myFind2 = function (cb) {
+    var id = { "key1" : "value1", "key2" : "value2" }
+    MyModel.findById(id, function(err, result) {
+      if (err) { return cb(err, null) }
+      return cb(null, result)
+    });
   };
 
 
   MyModel.remoteMethod(
-    'myFind', {
+    'myFind1', {
       accepts : [
       ],
       returns : { arg : 'myResult', type : 'MyModel' },
-      http : { path : "/myFind", verb : 'get' }
+      http : { path : "/myFind1", verb : 'get' }
+    });
+
+  MyModel.remoteMethod(
+    'myFind2', {
+      accepts : [
+      ],
+      returns : { arg : 'myResult', type : 'MyModel' },
+      http : { path : "/myFind2", verb : 'get' }
     });
 
 };
