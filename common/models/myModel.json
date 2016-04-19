@@ -1,0 +1,8 @@
+{
+  "name": "MyModel",
+  "mongodb": {
+    "collection": "my_collection"
+  },
+  "properties": {
+  }
+}

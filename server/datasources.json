@@ -2,5 +2,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+
+  "mydb": {
+    "name": "mydb",
+    "host": "sdi-dev-dbs-json.sdi",
+    "port": 27017,
+    "database": "github_loopback_issue",
+    "connector": "mongodb"
   }
 }
+
